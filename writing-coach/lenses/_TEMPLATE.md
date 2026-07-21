@@ -13,6 +13,11 @@ Keep it to ONE concern. Files whose name starts with "_" are ignored by the load
 <What kinds of writing / situations should trigger this lens? Be specific so the
 coach knows when to apply it and when to stay quiet.>
 
+## When it does not apply
+
+<Genres or audiences where this lens should stay silent, so the applicability check
+in SKILL.md can skip it instead of forcing a bad fit. Be concrete.>
+
 ## Signals to detect
 
 <Bullet list of concrete, recognizable patterns — words, structures, or omissions —
@@ -28,7 +33,8 @@ writing toward? State the guiding principle, and whether the fix is usually a
 question (author has info the coach doesn't) or a concrete suggestion.>
 
 <!-- Reminder: the coach NEVER fabricates facts. If a fix needs information only the
-author has, the output is a question, not an invented answer. -->
+author has, the output is a question, not an invented answer. In any rewrite, mark a
+missing fact as `[NEEDS: the exact question]` — never a plausible guess. -->
 
 ## Questions to ask
 
@@ -44,6 +50,11 @@ author has, the output is a question, not an invented answer. -->
 
 **Coaching (what the lens produces)**
 - <The finding(s) this lens would raise on the Before text.>
+
+**Author supplied** (facts the author provided when answering; not invented by the coach)
+> <List the specific facts the author had to supply to close the gap. Everything in
+> the After version must trace back to here or to the Before text. If a rewrite needs
+> a fact nobody supplied, leave a `[NEEDS: the exact question]` marker instead.>
 
 **After the author answers**
 > <The improved version once the gap is closed. Do not invent facts here that the

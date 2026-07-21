@@ -6,6 +6,10 @@
 
 Anything going up the chain: SLT and staff-meeting updates, exec briefings, board notes, skip-level emails, and any message whose readers include VPs, CVPs, or the CEO. The audience is smart, cross-functional, time-poor, and may last have seen this topic weeks ago.
 
+## When it does not apply
+
+Peer-to-peer or working-level writing: a message to your immediate team, a technical design doc for engineers, a casual Slack thread, or anything where the reader shares your context and there is no exec in the audience. Applying an exec lens there would strip useful detail. If no reader is a senior leader, skip this lens.
+
 ## Signals to detect
 
 - **Buried lede / no BLUF**: the message doesn't open with the single most important thing (the status, the decision, or the ask). The reader has to dig for the point.
@@ -16,7 +20,6 @@ Anything going up the chain: SLT and staff-meeting updates, exec briefings, boar
 - **Undefined jargon or acronyms**: terms that a single function knows but a cross-functional exec audience does not, used without a gloss.
 - **Commitments with no owner or date**: "we'll stand up the board," "targets to be hit," with no name and no when.
 - **Unqualified risk**: a risk named with no likelihood and no mitigation, or worse, a risk omitted to look tidy.
-- **AI tells**: em-dashes and machine phrasing. Execs notice, and it reads as unowned. (Your standard: *"no m-dashes."*)
 
 ## The coaching move
 
@@ -29,7 +32,8 @@ Then:
 - **Add a one-line refresher** for any topic the reader saw once, weeks ago.
 - **Name owners and dates** on every commitment.
 - **Qualify each risk** with likelihood and mitigation, and don't hide the ugly one.
-- **Strip AI tells**, em-dashes included. (For a full prose pass, hand the result to the `classic-style` skill.)
+
+For prose polish, machine phrasing, and AI tells such as em-dashes, this lens defers to the `classic-style` skill. Recommend a follow-up `classic-style` pass rather than flagging those here, so the two skills don't overlap.
 
 Do not invent facts to fill the structure. Where the draft lacks an owner, a date, a metric, or the ask, that is a finding: ask the author, or mark it `[NEEDS: …]`.
 
@@ -52,6 +56,9 @@ Do not invent facts to fill the structure. Where the draft lacks an owner, a dat
 - No ask: the reader doesn't know if a decision is needed. *FYI, or do you want something?*
 - Pure process: "met with," "worked through," "coordinated," "a lot of effort." *What outcome did that produce?*
 - No dates, owners, or refresher; "hopeful about timing" hides the real schedule and risk.
+
+**Author supplied** (facts the author provided when answering; not invented by the coach)
+> Launch target June 24; no action needed yet; project stands up a cross-industry foundation to ship fixes for critical OSS vulnerabilities pre-exploit; charter in final review with Google and Amazon as co-founders; a dozen launch partners confirmed; Jim Zemlin interim ED; risk is U.S. Treasury coordination tied to the June 2 EO; slip likelihood low; policy team closed the last open item yesterday; may ask for air cover if a partner wavers; will flag by June 20.
 
 **After the author answers**
 > **Launch is on track for June 24; no action needed from you yet.** [The project] stands up a cross-industry foundation to ship fixes for critical open-source vulnerabilities before they're exploited.

@@ -6,6 +6,10 @@
 
 Any writing meant to inform a decision, report status, make a request, or record a fact: status updates, proposals, recommendations, bug reports, reviews, requests for approval.
 
+## When it does not apply
+
+Deliberately high-level or vision writing where detail is not yet the point (an early brainstorm, a mission statement, a teaser). Also skip on drafts the author has flagged as a rough first pass where they already know the specifics are missing. When in doubt, apply it — vagueness is usually a defect, not a choice.
+
 ## Signals to detect
 
 - **Vague quantifiers**: "some," "several," "a number of," "significant," "substantial," "many," "a lot," "recently," "soon," "a while." Numbers and dates hide behind these.
@@ -41,6 +45,9 @@ Do **not** invent the missing detail. The output is a question, not a fabricated
 - "good progress" / "looks better": no measure. *How much faster, on what metric?*
 - "Several services": *which ones, how many of the total?*
 - "should be done soon": *what date, and what's left?*
+
+**Author supplied** (facts the author provided when answering; not invented by the coach)
+> 7 of 12 services migrated; p95 latency 340 ms → 210 ms on the migrated set; remaining 5 due Aug 1; blocker is the shared auth library; Priya owns the patch.
 
 **After the author answers**
 > We migrated 7 of 12 services this week. Median p95 latency on the migrated set dropped from 340 ms to 210 ms. The remaining 5 are scheduled by Aug 1; the blocker is the shared auth library, which Priya is patching.

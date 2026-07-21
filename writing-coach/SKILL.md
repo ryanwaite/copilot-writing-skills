@@ -1,6 +1,6 @@
 ---
 name: writing-coach
-description: 'A pluggable writing coach that critiques a draft against a set of coaching "lenses" and pushes back where it falls short. Ships with two lenses: specificity (calls out vague claims and missing detail, then asks for what is missing instead of guessing) and impact-over-activity (flags "reading the news" prose that narrates activity and reframes it around outcomes and so-what). Unlike a rewriter, the coach finds what is missing or mis-framed and asks pointed questions rather than fabricating facts. Add new lenses by dropping a markdown file in lenses/. Use when the user says "coach my writing", "critique this draft", "call me out", "is this detailed enough", "make this about impact not activity", "am I just reading the news", or "review this before I send it".'
+description: 'A pluggable writing coach that critiques a draft against a set of coaching "lenses" and pushes back where it falls short. Ships with three lenses: specificity (calls out vague claims and missing detail, then asks for what is missing instead of guessing), impact-over-activity (flags "reading the news" prose that narrates activity and reframes it around outcomes and so-what), and executive-audience (checks SLT/exec updates for BLUF, an explicit ask, and one-screen brevity). Unlike a rewriter, the coach finds what is missing or mis-framed and asks pointed questions rather than fabricating facts. Add new lenses by dropping a markdown file in lenses/. Use when the user says "coach my writing", "critique this draft", "call me out", "is this detailed enough", "make this about impact not activity", "am I just reading the news", "is this ready for the SLT/execs", or "review this before I send it".'
 argument-hint: 'Paste or point to the draft. Optionally name a lens ("just the impact lens") or say "critique only" vs "critique and rewrite".'
 ---
 
@@ -25,27 +25,42 @@ The coach fixes **substance and framing**; `classic-style` fixes **prose**. Natu
 
 - **The draft** — pasted inline, quoted, or a path to a local file the current environment can read. If it is missing, ask for it. Never invent the draft.
 - **Lens selection** (optional) — by default, apply **all** lenses in `lenses/`. If the user names one ("just the impact lens"), apply only that.
-- **Mode** (optional) — default is **critique only**. If the user says "critique and rewrite" (or "fix it"), also produce a revised draft *after* listing the gaps, marking any place where you had to assume something as `[ASSUMPTION: …]` for the user to confirm.
+- **Mode** (optional) — default is **critique only**. If the user says "critique and rewrite" (or "fix it"), also produce a revised draft *after* listing the gaps. Mark any place that needs a fact the author has not supplied as `[NEEDS: the exact question]` for the user to fill in. Never substitute an invented fact for a `[NEEDS: …]` marker.
 
 ## Procedure
 
 ### Step 1 — Discover the lenses
 
-Enumerate the lens files at runtime. Do **not** rely on a hardcoded list:
+Load the lenses **fresh from disk every run** so newly added ones are picked up. Do not rely on a hardcoded list or on lenses that merely happen to be in context.
+
+The lenses live in the `lenses/` folder next to this `SKILL.md`. List that folder and select every `*.md` file **except** those whose filename begins with `_` (e.g. `_TEMPLATE.md` is a scaffold, not a lens). Process them in sorted order for a stable result. For example, from the skill's own directory:
 
 ```bash
-ls "$(dirname "$0")/lenses"/*.md 2>/dev/null | grep -v '/_'
+ls lenses/*.md 2>/dev/null | grep -v '/_' | sort
 ```
 
-Load every `.md` file in `lenses/` **except** those whose name begins with `_` (e.g. `_TEMPLATE.md` is a scaffold, not a lens). If the user selected specific lenses, filter to those. Read each selected lens file in full before critiquing — each defines its own signals, coaching move, questions, and example.
+Then:
+
+- **Report what loaded.** Before critiquing, state `Loaded lenses: <names>` so the user can see which lenses ran.
+- **Treat zero lenses as an error, not an empty success.** If discovery finds no valid lens files, stop and say so rather than silently producing no findings.
+- If the user selected specific lenses, filter to those (match on the lens title or filename; if a requested lens can't be found, say so).
+- **Read each selected lens file in full** before critiquing — each defines its own applicability, signals, coaching move, questions, and example.
+
+Because an agent (not a deterministic program) runs this, discovery is best-effort: if you cannot list the folder, say so instead of guessing which lenses exist.
 
 ### Step 2 — Read the draft closely
 
-Read the whole draft first. Note its purpose and audience if stated. Understand the claims being made before judging how they are made.
+Read the whole draft first. Note its **purpose and audience** — stated or inferred — because the next step needs them to decide which lenses apply.
 
-### Step 3 — Apply each lens
+### Step 3 — Check each lens for applicability, then apply the ones that fit
 
-For every loaded lens, run its detection and produce findings. A finding is:
+"Apply all lenses" means **evaluate every loaded lens for fit**, not emit findings from every lens. For each lens, read its **Applies when** and **Does not apply when** sections and classify it:
+
+1. **Applicable** — the draft's genre/audience matches. Run the lens.
+2. **Not applicable** — it doesn't match (e.g. `executive-audience` on a casual Slack message). Skip it and note it in one line: `executive-audience: skipped (not an exec-facing update)`.
+3. **Unknown** — you can't tell the audience or purpose. Ask the user, or skip provisionally and say you did.
+
+For every **applicable** lens, run its detection and produce findings. A finding is:
 
 - **Where** — quote the offending phrase or sentence (short).
 - **What** — which lens flagged it and why.
@@ -55,13 +70,13 @@ Be direct and specific. "This is vague" is itself vague — say *what* is undefi
 
 ### Step 4 — Present the critique
 
-Organize by lens. For each lens with findings, give the findings and a short list of **open questions** the author must answer. If a lens finds nothing, say so in one line — the absence is useful signal.
+Organize by lens. For each **applicable** lens with findings, give the findings and a short list of **open questions** the author must answer. If an applicable lens finds nothing, say so in one line — the absence is useful signal. List any **skipped** lenses (and why) in one line so the coverage is transparent.
 
-End with a **one-line verdict**: is this ready to send, or does it need the open questions answered first?
+End with a **scoped verdict** that only claims what the applied lenses can support: "No blocking findings under the lenses that applied," or "Not ready under these lenses until the open questions are answered." Do not declare a draft globally "ready to send" — lenses can't vouch for correctness, tone, or anything no lens covers.
 
 ### Step 5 — Optional rewrite
 
-Only if the user asked for a rewrite: after the critique, produce a revised draft that fixes what can be fixed *without* fabricating facts. Where a fix needs information the author has not supplied, insert `[ASSUMPTION: …]` or `[NEEDS: …]` rather than making something up. Do not silently invent metrics, dates, names, or outcomes.
+Only if the user asked for a rewrite: after the critique, produce a revised draft that fixes what can be fixed *without* fabricating facts. Where a fix needs information the author has not supplied — a metric, date, name, owner, or outcome — insert `[NEEDS: the exact question]` at that spot instead of inventing something. Every fact in the rewrite must appear in the original draft or in an answer the author has given. Do not fill a `[NEEDS: …]` marker with a plausible guess.
 
 ## Stance and guardrails
 

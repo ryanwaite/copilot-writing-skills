@@ -6,6 +6,10 @@
 
 Status reports, weekly updates, project summaries, standups, brag docs, exec briefings, retros: anywhere a busy reader is asking "so what?" and "what do you need from me?"
 
+## When it does not apply
+
+Writing where the activity *is* the deliverable: meeting minutes, run logs, audit trails, changelogs, procedural how-tos, or a record kept precisely so someone can reconstruct the sequence of events. In those, chronological narration is the point, not a defect.
+
 ## Signals to detect
 
 - **Activity verbs with no result**: "worked on," "met with," "looked into," "attended," "reviewed," "discussed," "started," "continued," "spent time on," with nothing after them about the effect.
@@ -46,6 +50,9 @@ Do not invent an impact the author never stated. If the outcome is missing, ask 
 - Entire paragraph is activity: calls, spreadsheet, syncs, drafting. *No recommendation, no decision, no ask.*
 - Buried lede: the reader wants the recommendation, not the process. *Which vendor, and why?*
 - "started drafting a recommendation": *what does it say? When will they have it?*
+
+**Author supplied** (facts the author provided when answering; not invented by the coach)
+> Recommendation is Vendor B; B is the only one meeting SOC 2 and is 20% under budget; A fails security review; C is out of range; sign-off needed from procurement by Friday to hit the Q3 start; wants approval or concerns by Thursday.
 
 **After the author answers**
 > Recommend we go with Vendor B: it's the only one that meets our SOC 2 requirement and comes in 20% under budget. Vendor A is cheaper but fails security review; Vendor C is out of range. I need sign-off from procurement by Friday to hit the Q3 start date. Can you approve or flag concerns by Thursday?
