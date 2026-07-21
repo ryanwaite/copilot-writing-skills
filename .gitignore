@@ -1,0 +1,12 @@
+# Copilot CLI session state
+.copilot/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor cruft
+*.swp
+*~
+.idea/
+.vscode/
