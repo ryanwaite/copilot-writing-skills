@@ -4,7 +4,7 @@ A personal toolkit of [Copilot CLI](https://github.com/github/copilot-cli) skill
 
 | Skill | Kind | What it does |
 |---|---|---|
-| [`writing-coach`](writing-coach/) | Critic | Critiques a draft against pluggable "lenses" and pushes back where it falls short. Ships with **specificity** (calls out vague claims and missing detail) and **impact-over-activity** (flags "reading the news" prose and reframes around outcomes). Add your own lenses by dropping a file in `writing-coach/lenses/`. |
+| [`writing-coach`](writing-coach/) | Critic | Critiques a draft against pluggable "lenses" and pushes back where it falls short. Ships with **specificity** (calls out vague claims and missing detail), **impact-over-activity** (flags "reading the news" prose and reframes around outcomes), and **executive-audience** (BLUF, explicit ask, one-screen brevity for SLT/exec updates). Add your own lenses by dropping a file in `writing-coach/lenses/`. |
 | [`classic-style`](classic-style/) | Rewriter | Rewrites prose in Steven Pinker's Classic Style and strips AI writing artifacts (em-dashes, "not just X but Y", delve/leverage, rule-of-three padding, reflexive hedging). |
 
 ## The pipeline
@@ -33,6 +33,7 @@ Use either on its own, too. "Coach this before I send it" or "rewrite this in cl
 │   └── lenses/
 │       ├── specificity.md
 │       ├── impact-over-activity.md
+│       ├── executive-audience.md
 │       └── _TEMPLATE.md          # copy to add a new coaching lens
 ├── install.sh                    # installs one or both skills
 ├── LICENSE                       # MIT
