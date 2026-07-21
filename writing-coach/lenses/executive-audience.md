@@ -8,19 +8,19 @@ Anything going up the chain: SLT and staff-meeting updates, exec briefings, boar
 
 ## Signals to detect
 
-- **Buried lede / no BLUF** — the message doesn't open with the single most important thing (the status, the decision, or the ask). The reader has to dig for the point.
-- **Missing or vague ask** — the reader can't tell what's wanted: FYI, a decision, resourcing, or air cover. If it's FYI, that isn't stated either.
-- **Process narration** — "we met with," "we've been coordinating," "I did an analysis." Execs want outcome, risk, and ask, not how the sausage was made. (Overlaps the impact lens, sharpened for an exec reader.)
-- **Too long to skim** — more than roughly one screen, no headers or bolded takeaways, no structure a reader can scan in 20 seconds.
-- **No cache refresh** — assumes the reader remembers a prior thread. A one-line "what this is" refresher is missing. (Your OSSPrey prompt made this explicit: *"[describe OSSPrey to refresh the cache]."*)
-- **Undefined jargon or acronyms** — terms that a single function knows but a cross-functional exec audience does not, used without a gloss.
-- **Commitments with no owner or date** — "we'll stand up the board," "targets to be hit," with no name and no when.
-- **Unqualified risk** — a risk named with no likelihood and no mitigation, or worse, a risk omitted to look tidy.
-- **AI tells** — em-dashes and machine phrasing. Execs notice, and it reads as unowned. (Your standard: *"no m-dashes."*)
+- **Buried lede / no BLUF**: the message doesn't open with the single most important thing (the status, the decision, or the ask). The reader has to dig for the point.
+- **Missing or vague ask**: the reader can't tell what's wanted: FYI, a decision, resourcing, or air cover. If it's FYI, that isn't stated either.
+- **Process narration**: "we met with," "we've been coordinating," "I did an analysis." Execs want outcome, risk, and ask, not how the sausage was made. (Overlaps the impact lens, sharpened for an exec reader.)
+- **Too long to skim**: more than roughly one screen, no headers or bolded takeaways, no structure a reader can scan in 20 seconds.
+- **No cache refresh**: assumes the reader remembers a prior thread. A one-line "what this is" refresher is missing. (Your OSSPrey prompt made this explicit: *"[describe OSSPrey to refresh the cache]."*)
+- **Undefined jargon or acronyms**: terms that a single function knows but a cross-functional exec audience does not, used without a gloss.
+- **Commitments with no owner or date**: "we'll stand up the board," "targets to be hit," with no name and no when.
+- **Unqualified risk**: a risk named with no likelihood and no mitigation, or worse, a risk omitted to look tidy.
+- **AI tells**: em-dashes and machine phrasing. Execs notice, and it reads as unowned. (Your standard: *"no m-dashes."*)
 
 ## The coaching move
 
-Push the draft to **BLUF — bottom line up front.** The first two or three sentences should carry: *what this is* (one-line refresher), *where it stands*, *what you need*, and *by when*. Everything else is supporting detail the reader can drop into if they choose.
+Push the draft to **BLUF, bottom line up front.** The first two or three sentences should carry: *what this is* (one-line refresher), *where it stands*, *what you need*, and *by when*. Everything else is supporting detail the reader can drop into if they choose.
 
 Then:
 - **Make the ask explicit and singular.** One decision or one request, stated plainly. If it's purely informational, say "no action needed."
