@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Install Copilot CLI writing skills into the skills directory.
+# Install Copilot CLI skills into the skills directory.
 #
 # Usage:
 #   ./install.sh [--force] [skill ...]
